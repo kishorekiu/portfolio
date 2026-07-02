@@ -15,6 +15,11 @@ export const portfolioFileSystem: FileNode[] = [
         type: "folder",
         children: [
           {
+            name: "readme.md",
+            type: "file",
+            path: "/projects/airbnb-clone/readme",
+          },
+          {
             name: "ui-features.tsx",
             type: "file",
             path: "/projects/airbnb-clone/ui-features",
@@ -35,6 +40,11 @@ export const portfolioFileSystem: FileNode[] = [
         name: "dev-blogs",
         type: "folder",
         children: [
+          {
+            name: "readme.md",
+            type: "file",
+            path: "/projects/dev-blogs/readme",
+          },
           {
             name: "system-architecture.tsx",
             type: "file",

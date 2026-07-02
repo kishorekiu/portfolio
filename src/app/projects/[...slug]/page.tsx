@@ -7,6 +7,8 @@ import AirbnbUIFeatures from "@/components/bento/AirbnbUIFeatures";
 import AirbnbMicroservices from "@/components/bento/AirbnbMicroservices";
 import AirbnbRedisCache from "@/components/bento/AirbnbRedisCache";
 import DevBlogsArchitecture from "@/components/bento/DevBlogsArchitecture";
+import DynamicReadme from "@/components/bento/DynamicReadme";
+import { airbnbReadmeData, devBlogsReadmeData } from "@/lib/readme-data";
 
 interface PageProps {
   params: Promise<{
@@ -23,6 +25,8 @@ export default async function ProjectCatchAllPage({ params }: PageProps) {
   // 1. AIRBNB CLONE ROUTING (Priority Showcase)
   if (project === "airbnb-clone") {
     switch (subPage) {
+      case "readme":
+        return <DynamicReadme data={airbnbReadmeData} />;
       case "ui-features":
         return <AirbnbUIFeatures />;
       case "microservices":
@@ -42,11 +46,12 @@ export default async function ProjectCatchAllPage({ params }: PageProps) {
   // 2. DEV BLOGS ROUTING
   if (project === "dev-blogs") {
     switch (subPage) {
-      case "architecture":
-      case "ai-moderation":
+      case "readme":
+        return <DynamicReadme data={devBlogsReadmeData} />;
+      case "system-architecture":
         return <DevBlogsArchitecture />;
       default:
-        return <DevBlogsArchitecture />; // Defaulting to the bento view for now
+        return <DevBlogsArchitecture />;
     }
   }
 
