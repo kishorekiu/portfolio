@@ -1,20 +1,21 @@
 import React from "react";
 import DynamicBentoGrid from "./DynamicBentoGrid";
-import { airbnbUIFeaturesData } from "@/lib/bento-data";
+import { devBlogsArchitectureData } from "@/lib/bento-data";
 
-export default function AirbnbUIFeatures() {
+export default function DevBlogsArchitecture() {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-          Frontend Engineering & Interactive UI
+          Dev Blogs: AI-Powered Platform
         </h1>
         <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-          Config-driven Bento grid showcasing responsive patterns.
+          Full-stack architecture breakdown focusing on OpenAI integrations and
+          Next.js data mutations.
         </p>
       </div>
 
-      <DynamicBentoGrid items={airbnbUIFeaturesData} />
+      <DynamicBentoGrid items={devBlogsArchitectureData} />
     </div>
   );
 }

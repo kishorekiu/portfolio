@@ -6,6 +6,7 @@ import { Layers, Server, Database, FileCode } from "lucide-react";
 import AirbnbUIFeatures from "@/components/bento/AirbnbUIFeatures";
 import AirbnbMicroservices from "@/components/bento/AirbnbMicroservices";
 import AirbnbRedisCache from "@/components/bento/AirbnbRedisCache";
+import DevBlogsArchitecture from "@/components/bento/DevBlogsArchitecture";
 
 interface PageProps {
   params: Promise<{
@@ -40,12 +41,13 @@ export default async function ProjectCatchAllPage({ params }: PageProps) {
 
   // 2. DEV BLOGS ROUTING
   if (project === "dev-blogs") {
-    return (
-      <DefaultProjectOverview
-        title={`Dev Blogs: ${subPage || "Overview"}`}
-        description="Full-stack AI-powered blogging platform built with Next.js, MongoDB, and automated content moderation."
-      />
-    );
+    switch (subPage) {
+      case "architecture":
+      case "ai-moderation":
+        return <DevBlogsArchitecture />;
+      default:
+        return <DevBlogsArchitecture />; // Defaulting to the bento view for now
+    }
   }
 
   // If route doesn't match known projects, trigger 404

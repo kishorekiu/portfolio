@@ -36,14 +36,9 @@ export const portfolioFileSystem: FileNode[] = [
         type: "folder",
         children: [
           {
-            name: "ai-moderation.ts",
+            name: "system-architecture.tsx",
             type: "file",
-            path: "/projects/dev-blogs/ai-moderation",
-          },
-          {
-            name: "architecture.md",
-            type: "file",
-            path: "/projects/dev-blogs/architecture",
+            path: "/projects/dev-blogs/system-architecture",
           },
         ],
       },

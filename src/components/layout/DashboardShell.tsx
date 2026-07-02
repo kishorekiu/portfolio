@@ -6,6 +6,8 @@ import { Menu, X } from "lucide-react";
 import FileTree from "@/components/navigation/FileTree";
 import { portfolioFileSystem } from "@/lib/file-system";
 import clsx from "clsx";
+import ThemeToggle from "./ThemeToggle";
+import TopTabs from "./TopTabs";
 
 export default function DashboardShell({
   children,
@@ -64,6 +66,9 @@ export default function DashboardShell({
         <div className="flex-1 overflow-y-auto py-2">
           <FileTree nodes={portfolioFileSystem} />
         </div>
+        <div className="p-4 border-t border-zinc-200 dark:border-zinc-800">
+          <ThemeToggle />
+        </div>
       </aside>
 
       {/* Mobile Backdrop Blur (Closes menu when clicked outside) */}
@@ -76,10 +81,8 @@ export default function DashboardShell({
 
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col h-[calc(100vh-3.5rem)] md:h-full overflow-hidden relative z-10">
-        {/* Placeholder for future top tabs */}
-        <div className="hidden md:flex h-10 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#0E1117] items-center px-4 text-sm text-zinc-500">
-          Top Tabs Placeholder
-        </div>
+        {/* top tabs */}
+        <TopTabs />
 
         <div className="flex-1 overflow-y-auto p-4 md:p-8">{children}</div>
       </main>
