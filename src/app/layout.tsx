@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import DashboardShell from "@/components/layout/DashboardShell";
+import FloatingNav from "@/components/layout/FloatingNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio | IDE Dashboard",
+  title: "Kishore | Full-Stack Engineer",
   description: "Modern Frontend Engineering Portfolio",
 };
 
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-white dark:bg-[#0E1117] text-zinc-900 dark:text-zinc-100 h-screen overflow-hidden`}
+        className={`${inter.className} bg-white dark:bg-[#0E1117] text-zinc-900 dark:text-zinc-100 min-h-screen selection:bg-blue-500/30`}
       >
         <ThemeProvider
           attribute="class"
@@ -27,7 +27,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <DashboardShell>{children}</DashboardShell>
+          {children}
+          <FloatingNav />
         </ThemeProvider>
       </body>
     </html>
