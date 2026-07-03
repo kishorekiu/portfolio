@@ -4,6 +4,9 @@ import React from "react";
 import { ArrowRight, Sparkles, TerminalSquare } from "lucide-react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import ScrambleText from "@/components/ui/ScrambleText";
+import SciFiButton from "@/components/ui/SciFiButton";
+import HighwayMarquee from "@/components/ui/HighMarquee";
 
 export default function HomePage() {
   // Staggered animation configuration
@@ -30,6 +33,15 @@ export default function HomePage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 relative overflow-hidden bg-white dark:bg-[#0E1117]">
+      {/* 1. Highway Marquees (Background Layer) */}
+      <div className="absolute inset-0 z-0 flex flex-col justify-center overflow-hidden pointer-events-none">
+        <HighwayMarquee className="-rotate-6 scale-110 -translate-y-24" />
+        <HighwayMarquee
+          reverse
+          className="-rotate-6 scale-110 translate-y-24"
+        />
+      </div>
+
       {/* Animated Glowing Background Mesh */}
       <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden pointer-events-none">
         <motion.div
@@ -37,12 +49,6 @@ export default function HomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
           className="absolute w-200 h-150 bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen"
-        />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
-          className="absolute right-[-10%] top-[-10%] w-150 h-150 bg-indigo-400/10 dark:bg-indigo-600/10 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen"
         />
       </div>
 
@@ -56,7 +62,12 @@ export default function HomePage() {
         <motion.div variants={itemVariants} className="flex justify-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-600 dark:text-zinc-400">
             <Sparkles className="w-3 h-3 text-amber-500" />
-            <span>Available for new opportunities in 2026</span>
+            <span>
+              <ScrambleText
+                text="Available for new opportunities in 2026"
+                delay={0}
+              />
+            </span>
           </div>
         </motion.div>
 
@@ -71,30 +82,33 @@ export default function HomePage() {
           </span>
         </motion.h1>
 
-        <motion.p
+        <motion.div
           variants={itemVariants}
           className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-medium"
         >
-          I am a Full-Stack Engineer specializing in high-performance React
-          architectures, Node.js microservices, and pixel-perfect design
-          systems.
-        </motion.p>
+          I am a{" "}
+          <span className="font-bold text-zinc-900 dark:text-zinc-100">
+            <ScrambleText text="Full-Stack Engineer" delay={1500} />
+          </span>{" "}
+          specializing in high-performance React architectures, Node.js
+          microservices, and pixel-perfect design systems.
+        </motion.div>
 
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8"
         >
-          <Link
-            href="/projects/airbnb-clone/readme"
-            className="group flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-6 py-3 rounded-full font-semibold transition-all hover:scale-105 active:scale-95 shadow-xl shadow-zinc-900/20 dark:shadow-white/10"
-          >
-            Enter Workspace
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <Link href="/projects/airbnb-clone/readme" className="outline-none">
+            <SciFiButton>
+              <span className="flex items-center gap-2">
+                Enter Workspace <ArrowRight className="w-4 h-4" />
+              </span>
+            </SciFiButton>
           </Link>
 
           <Link
             href="/skills"
-            className="group flex items-center gap-2 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 px-6 py-3 rounded-full font-semibold transition-all hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:scale-105 active:scale-95"
+            className="group flex items-center gap-2 bg-transparent text-zinc-900 dark:text-white px-6 py-3 rounded-full font-semibold transition-all hover:bg-zinc-100 dark:hover:bg-zinc-900"
           >
             Explore Skills
             <TerminalSquare className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
