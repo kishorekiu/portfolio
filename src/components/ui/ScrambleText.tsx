@@ -7,7 +7,8 @@ interface ScrambleTextProps {
   delay?: number;
 }
 
-const CHARS = "!<>-_\\/[]{}—=+*^?#________";
+// Swapped to uppercase alphanumeric for a perfectly smooth, baseline-consistent shuffle
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 export default function ScrambleText({ text, delay = 0 }: ScrambleTextProps) {
   const [displayText, setDisplayText] = useState(text);
@@ -25,24 +26,23 @@ export default function ScrambleText({ text, delay = 0 }: ScrambleTextProps) {
               // If the index is less than our current iteration, show the real letter
               if (index < iteration) return text[index];
 
-              // Otherwise, show a random hacker character
+              // Skip spaces so they don't shuffle (makes it look much cleaner)
+              if (text[index] === " ") return " ";
+
+              // Otherwise, show a random uppercase character
               return CHARS[Math.floor(Math.random() * CHARS.length)];
             })
             .join(""),
         );
 
-        // Once we've revealed all letters, stop the interval
         if (iteration >= text.length) {
           clearInterval(interval);
         }
 
-        // Adjust this fraction to control the speed of the reveal
-        // Smaller number = slower reveal. (e.g., 1/3 means it takes 3 ticks to reveal 1 letter)
         iteration += 1 / 3;
-      }, 30); // 30ms per tick
+      }, 30);
     };
 
-    // Wait for the requested delay before starting
     const timeout = setTimeout(startScramble, delay);
 
     return () => {
