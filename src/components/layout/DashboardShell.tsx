@@ -6,7 +6,6 @@ import { Menu, X } from "lucide-react";
 import FileTree from "@/components/navigation/FileTree";
 import { portfolioFileSystem } from "@/lib/file-system";
 import clsx from "clsx";
-import ThemeToggle from "./ThemeToggle";
 import TopTabs from "./TopTabs";
 
 export default function DashboardShell({
@@ -65,9 +64,6 @@ export default function DashboardShell({
         </div>
         <div className="flex-1 overflow-y-auto py-2">
           <FileTree nodes={portfolioFileSystem} />
-        </div>
-        <div className="p-4 border-t border-zinc-200 dark:border-zinc-800">
-          <ThemeToggle />
         </div>
       </aside>
 

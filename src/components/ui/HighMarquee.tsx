@@ -1,13 +1,14 @@
 import React from "react";
-import { motion } from "framer-motion";
 
-const HighwayMarquee = ({
-  reverse = false,
-  className,
-}: {
+interface HighwayMarqueeProps {
   reverse?: boolean;
   className?: string;
-}) => {
+}
+
+export default function HighwayMarquee({
+  reverse = false,
+  className = "",
+}: HighwayMarqueeProps) {
   const techStack = [
     "REACT",
     "NEXT.JS",
@@ -25,13 +26,13 @@ const HighwayMarquee = ({
     <div
       className={`flex overflow-hidden whitespace-nowrap opacity-[0.03] dark:opacity-[0.05] pointer-events-none select-none ${className}`}
     >
-      <motion.div
-        className="flex gap-8 items-center"
-        // Move from 0% to -50% (or vice versa). Because we duplicated the array 4 times,
-        // shifting it by exactly 50% creates a seamless, infinite optical illusion.
-        animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+      <div
+        // We apply our custom Tailwind animation class based on the 'reverse' prop
+        className={`flex gap-8 items-center will-change-transform ${
+          reverse ? "animate-marquee-reverse" : "animate-marquee"
+        }`}
       >
+        {/* We duplicate the array 4 times to ensure it's wide enough to fill any screen before the 50% snap */}
         {[...techStack, ...techStack, ...techStack, ...techStack].map(
           (tech, i) => (
             <span
@@ -42,9 +43,7 @@ const HighwayMarquee = ({
             </span>
           ),
         )}
-      </motion.div>
+      </div>
     </div>
   );
-};
-
-export default HighwayMarquee;
+}

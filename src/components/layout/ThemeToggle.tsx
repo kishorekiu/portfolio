@@ -3,32 +3,41 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
-  // Prevent hydration mismatch by waiting for mount
-  React.useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Return a transparent placeholder of the exact same size to prevent layout shift
+  if (!mounted) {
+    return <div className="w-10 h-10 rounded-full" />;
+  }
+
+  const isDark = resolvedTheme === "dark";
 
   return (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="flex items-center justify-center w-full py-2 px-3 space-x-2 text-sm text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-100 rounded-lg transition-colors"
+    <motion.button
+      // 1. The Starting Position (Off-screen right, rotated, shrunk, and invisible)
+      initial={{ x: 100, rotate: 180, opacity: 0, scale: 0.5 }}
+      // 2. The Final State (Includes the 1.2 scale bounce keyframes!)
+      animate={{ x: 0, rotate: 0, opacity: 1, scale: [0.5, 1.2, 1] }}
+      // 3. The Physics Configuration
+      transition={{
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1], // That ultra-smooth Apple ease curve
+        scale: { duration: 0.6, times: [0, 0.6, 1] }, // Forces the 1.2 scale to hit exactly at the 60% mark of the animation
+      }}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      // Updated classes for much higher contrast against the page backgrounds
+      className="flex items-center justify-center w-10 h-10 rounded-full bg-zinc-200/90 dark:bg-zinc-800/90 border border-zinc-300/80 dark:border-zinc-600/80 backdrop-blur-xl shadow-xl text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors hover:bg-zinc-300/90 dark:hover:bg-zinc-700/90 outline-none focus:ring-2 focus:ring-blue-500/50"
       aria-label="Toggle Dark Mode"
     >
-      {theme === "dark" ? (
-        <>
-          <Sun className="w-4 h-4" />
-          <span>Light Mode</span>
-        </>
-      ) : (
-        <>
-          <Moon className="w-4 h-4" />
-          <span>Dark Mode</span>
-        </>
-      )}
-    </button>
+      {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+    </motion.button>
   );
 }

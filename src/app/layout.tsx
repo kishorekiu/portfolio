@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import FloatingNav from "@/components/layout/FloatingNav";
+import ThemeToggle from "@/components/layout/ThemeToggle";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,9 @@ export default function RootLayout({
         >
           {children}
           <FloatingNav />
+          <div className="fixed top-6 right-6 z-50">
+            <ThemeToggle />
+          </div>
         </ThemeProvider>
       </body>
     </html>
