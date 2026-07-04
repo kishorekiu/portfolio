@@ -17,9 +17,10 @@ export default function HighwayMarquee({
     "REDIS",
     "MONGODB",
     "DOCKER",
-    "AWS",
+    // "AWS",
+    "CLAUDE AI",
+    "STORYBLOK",
     "TAILWIND",
-    "GRAPHQL",
   ];
 
   return (

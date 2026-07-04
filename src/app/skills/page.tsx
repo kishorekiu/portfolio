@@ -3,22 +3,62 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Code2,
-  Layers,
-  Cpu,
-  Terminal,
   Globe,
+  Layout,
   Database,
-  Flame,
-  Workflow,
+  Server,
+  BrainCircuit,
+  Bot,
   Cloud,
-  ShieldCheck,
+  Container,
+  Activity,
+  Terminal,
+  Code2,
+  Workflow,
 } from "lucide-react";
 
-// Robust skill ecosystem array
-const SKILLS_DATA = [
+export const CATEGORIES = [
+  { id: "all", label: "All Skills" },
+  { id: "frontend", label: "Frontend" },
+  { id: "backend", label: "Backend & DBs" },
+  { id: "ai", label: "AI & Automation" },
+  { id: "devops", label: "DevOps & Tools" },
+];
+
+export const SKILLS_DATA = [
+  // ==========================================
+  // AI & AUTOMATION (The Highlight Pieces)
+  // ==========================================
   {
-    name: "Next.js",
+    name: "Claude Code & MCP Servers",
+    category: "ai",
+    level: "Expert",
+    icon: (
+      <BrainCircuit className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+    ),
+    // Massive 2x2 card to draw the recruiter's eye immediately
+    size: "col-span-2 row-span-2 md:col-span-2 md:row-span-2",
+  },
+  {
+    name: "OpenAI SDK & Copilot",
+    category: "ai",
+    level: "Advanced",
+    icon: <Bot className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
+    size: "col-span-2 row-span-1 md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "Custom AI Workflows",
+    category: "ai",
+    level: "Expert",
+    icon: <Workflow className="w-5 h-5 text-purple-600 dark:text-purple-400" />,
+    size: "col-span-2 row-span-1 md:col-span-1 md:row-span-1",
+  },
+
+  // ==========================================
+  // FRONTEND
+  // ==========================================
+  {
+    name: "Next.js (App Router)",
     category: "frontend",
     level: "Expert",
     icon: <Globe className="w-5 h-5 text-zinc-900 dark:text-white" />,
@@ -28,68 +68,74 @@ const SKILLS_DATA = [
     name: "React.js",
     category: "frontend",
     level: "Expert",
-    icon: <Layers className="w-5 h-5 text-blue-500" />,
-    size: "col-span-1 row-span-1",
+    icon: <Code2 className="w-5 h-5 text-blue-500" />,
+    size: "col-span-2 row-span-1 md:col-span-1",
   },
   {
-    name: "TypeScript",
+    name: "Tailwind & MUI 5",
     category: "frontend",
     level: "Advanced",
-    icon: <Code2 className="w-5 h-5 text-blue-600" />,
-    size: "col-span-1 row-span-1",
+    icon: <Layout className="w-5 h-5 text-sky-400" />,
+    size: "col-span-2 row-span-1 md:col-span-1",
   },
   {
-    name: "Node.js",
-    category: "backend",
-    level: "Expert",
-    icon: <Cpu className="w-5 h-5 text-emerald-500" />,
-    size: "col-span-1 row-span-2",
+    name: "Storyblok CMS",
+    category: "frontend",
+    level: "Advanced",
+    icon: <Terminal className="w-5 h-5 text-teal-500" />,
+    size: "col-span-2 row-span-1 md:col-span-1",
   },
+
+  // ==========================================
+  // BACKEND & DATABASES
+  // ==========================================
   {
-    name: "Express",
+    name: "Node.js & Express",
     category: "backend",
     level: "Advanced",
-    icon: <Terminal className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />,
-    size: "col-span-1 row-span-1",
+    icon: <Server className="w-5 h-5 text-green-600" />,
+    size: "col-span-2 row-span-1",
+  },
+  {
+    name: "Redis (Distributed Locking)",
+    category: "backend",
+    level: "Expert",
+    icon: <Database className="w-5 h-5 text-red-500" />,
+    size: "col-span-2 row-span-1 md:col-span-1",
   },
   {
     name: "MongoDB",
     category: "backend",
     level: "Advanced",
-    icon: <Database className="w-5 h-5 text-emerald-600" />,
-    size: "col-span-2 row-span-1",
+    icon: <Database className="w-5 h-5 text-green-500" />,
+    size: "col-span-2 row-span-1 md:col-span-1",
   },
+
+  // ==========================================
+  // DEVOPS, TOOLS & TESTING
+  // ==========================================
   {
-    name: "Redis",
-    category: "backend",
-    level: "Intermediate",
-    icon: <Flame className="w-5 h-5 text-rose-500" />,
-    size: "col-span-1 row-span-1",
-  },
-  {
-    name: "Tailwind CSS",
-    category: "frontend",
-    level: "Expert",
-    icon: <Workflow className="w-5 h-5 text-sky-400" />,
-    size: "col-span-1 row-span-1",
-  },
-  {
-    name: "Docker",
-    category: "tools",
-    level: "Intermediate",
-    icon: <Cloud className="w-5 h-5 text-blue-400" />,
-    size: "col-span-1 row-span-1",
-  },
-  {
-    name: "GitHub Actions",
-    category: "tools",
+    name: "GitHub Actions CI/CD",
+    category: "devops",
     level: "Advanced",
-    icon: <ShieldCheck className="w-5 h-5 text-purple-500" />,
+    icon: <Workflow className="w-5 h-5 text-zinc-700 dark:text-zinc-300" />,
     size: "col-span-2 row-span-1",
+  },
+  {
+    name: "Docker & AWS",
+    category: "devops",
+    level: "Intermediate",
+    icon: <Container className="w-5 h-5 text-blue-600" />,
+    size: "col-span-2 row-span-1 md:col-span-1",
+  },
+  {
+    name: "Dynatrace & K6 Testing",
+    category: "devops",
+    level: "Intermediate",
+    icon: <Activity className="w-5 h-5 text-purple-500" />,
+    size: "col-span-2 row-span-1 md:col-span-1",
   },
 ];
-
-const CATEGORIES = ["all", "frontend", "backend", "tools"];
 
 export default function SkillsPage() {
   const [activeTab, setActiveTab] = useState("all");
@@ -115,22 +161,22 @@ export default function SkillsPage() {
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-8 bg-zinc-100/80 dark:bg-zinc-900/40 p-1.5 rounded-full border border-zinc-200/50 dark:border-zinc-800/50 self-center md:self-start backdrop-blur-md">
         {CATEGORIES.map((tab) => (
           <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
             className={`relative px-5 py-2 text-xs md:text-sm font-semibold capitalize rounded-full transition-colors duration-300 ${
-              activeTab === tab
+              activeTab === tab.id
                 ? "text-white dark:text-zinc-900"
                 : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
             }`}
           >
-            {activeTab === tab && (
+            {activeTab === tab.id && (
               <motion.div
                 layoutId="activeFilterBg"
                 className="absolute inset-0 bg-zinc-900 dark:bg-white rounded-full -z-10"
                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
             )}
-            {tab}
+            {tab.label}
           </button>
         ))}
       </div>
@@ -138,7 +184,7 @@ export default function SkillsPage() {
       {/* Bento Grid Canvas */}
       <motion.div
         layout
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-27.5"
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[minmax(27.5, auto)]"
       >
         <AnimatePresence mode="popLayout">
           {filteredSkills.map((skill) => (

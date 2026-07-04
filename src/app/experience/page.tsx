@@ -2,68 +2,62 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Briefcase, Calendar, MapPin, ExternalLink } from "lucide-react";
+import {
+  Briefcase,
+  BrainCircuit,
+  Calendar,
+  MapPin,
+  ExternalLink,
+} from "lucide-react";
 
-const EXPERIENCE_DATA = [
+export const EXPERIENCE_DATA = [
   {
-    id: 1,
-    role: "Full-Stack Software Engineer",
-    company: "Tech Startup / Product Company",
-    date: "2024 - Present",
-    location: "Remote",
+    id: "directv-associate",
+    company: "Cognizant Technology Solutions (DIRECTV)",
+    role: "Associate (Full Stack & AI)",
+    date: "Feb 2024 - Present", // Adjust month as needed
+    location: "Hyderabad, India",
     description:
-      "Architected scalable microservices using Node.js and Express. Implemented Redis caching strategies that reduced database load by 40%. Led the frontend migration to Next.js App Router, heavily utilizing Server Components and optimistic UI mutations for zero-latency interactions.",
-    tech: ["Next.js", "Node.js", "Redis", "MongoDB", "Framer Motion"],
+      "Transitioned into deep domain architecture, full-stack performance tuning, and engineering custom AI automation pipelines for enterprise incident management.",
+    icon: BrainCircuit,
+    highlights: [
+      "Engineered a custom Developer Digital Twin (Autonomous AIOps Agent) using Claude Code CLI and MCP Servers.",
+      "Embedded personalized debugging strategies and deep domain context into the AI, enabling it to autonomously triage, route, and identify root-cause families for live production incidents.",
+      "Led the production-readiness audit for a dual-write Redis caching architecture, implementing distributed locking mechanisms across Kubernetes pods.",
+      "Validating complex cache lifecycles and server telemetry utilizing Dynatrace DQL and ArgoCD.",
+    ],
+    tech: [
+      "Next.js App Router",
+      "Redis",
+      "Claude CLI",
+      "MCP Servers",
+      "Dynatrace",
+      "ArgoCD",
+    ],
   },
   {
-    id: 2,
-    role: "Frontend Developer",
-    company: "Agency / Mid-level Corp",
-    date: "2022 - 2024",
-    location: "Hybrid",
+    id: "directv-programmer-analyst",
+    company: "Cognizant Technology Solutions (DIRECTV)",
+    role: "Programmer Analyst",
+    date: "Aug 2022 - Jan 2024",
+    location: "Hyderabad, India",
     description:
-      "Spearheaded the development of complex, data-heavy dashboards. Implemented DOM virtualization techniques to render 100,000+ rows of data without dropping frame rates. Built dynamic, config-driven Bento UI ecosystems.",
-    tech: ["React.js", "TypeScript", "Tailwind CSS", "Redux Toolkit"],
-  },
-  {
-    id: 3,
-    role: "Junior Web Developer",
-    company: "Initial Tech Role",
-    date: "2021 - 2022",
-    location: "On-site",
-    description:
-      "Integrated third-party APIs and OpenAI SDK agents to automate content moderation. Managed MongoDB aggregations and built secure JWT authentication pipelines to ensure robust session management across tabs.",
-    tech: ["JavaScript", "Express", "Mongoose", "JWT"],
-  },
-  {
-    id: 1,
-    role: "Full-Stack Software Engineer",
-    company: "Tech Startup / Product Company",
-    date: "2024 - Present",
-    location: "Remote",
-    description:
-      "Architected scalable microservices using Node.js and Express. Implemented Redis caching strategies that reduced database load by 40%. Led the frontend migration to Next.js App Router, heavily utilizing Server Components and optimistic UI mutations for zero-latency interactions.",
-    tech: ["Next.js", "Node.js", "Redis", "MongoDB", "Framer Motion"],
-  },
-  {
-    id: 2,
-    role: "Frontend Developer",
-    company: "Agency / Mid-level Corp",
-    date: "2022 - 2024",
-    location: "Hybrid",
-    description:
-      "Spearheaded the development of complex, data-heavy dashboards. Implemented DOM virtualization techniques to render 100,000+ rows of data without dropping frame rates. Built dynamic, config-driven Bento UI ecosystems.",
-    tech: ["React.js", "TypeScript", "Tailwind CSS", "Redux Toolkit"],
-  },
-  {
-    id: 3,
-    role: "Junior Web Developer",
-    company: "Initial Tech Role",
-    date: "2021 - 2022",
-    location: "On-site",
-    description:
-      "Integrated third-party APIs and OpenAI SDK agents to automate content moderation. Managed MongoDB aggregations and built secure JWT authentication pipelines to ensure robust session management across tabs.",
-    tech: ["JavaScript", "Express", "Mongoose", "JWT"],
+      "Focused on highly scalable frontend architectures, component system design, and rigorous performance optimizations.",
+    icon: Briefcase,
+    highlights: [
+      "Architected pixel-perfect, highly accessible user interfaces through strict Figma-to-code execution.",
+      "Drove end-to-end testing protocols focused on maximizing Core Web Vitals and server-side rendering (SSR) efficiency.",
+      "Enforced CATO compliance and optimized complex React component logic using efficient data structures.",
+      "Orchestrated the comprehensive production audit for the legacy Pages Router to App Router transition across 30+ core pages.",
+    ],
+    tech: [
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "Material UI",
+      "Figma",
+      "Web Performance",
+    ],
   },
 ];
 
@@ -130,9 +124,11 @@ export default function ExperiencePage() {
                       <span className="font-semibold text-zinc-800 dark:text-zinc-200">
                         {job.company}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5" /> {job.location}
-                      </span>
+                      {job.location && (
+                        <span className="flex items-center gap-1">
+                          <MapPin className="w-3.5 h-3.5" /> {job.location}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -140,7 +136,24 @@ export default function ExperiencePage() {
                     {job.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 pt-2">
+                  {/* NEW: Experience Highlights */}
+                  {job.highlights && job.highlights.length > 0 && (
+                    <ul className="space-y-3 mt-4">
+                      {job.highlights.map((highlight, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-sm md:text-base text-zinc-600 dark:text-zinc-400 group/bullet"
+                        >
+                          {/* Custom glowing bullet point */}
+                          <div className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500/50 shrink-0 group-hover/bullet:bg-blue-500 group-hover/bullet:shadow-[0_0_8px_rgba(59,130,246,0.8)] transition-all duration-300" />
+                          <span className="leading-relaxed">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Tech Stack - added extra padding top to separate from highlights */}
+                  <div className="flex flex-wrap gap-2 pt-4">
                     {job.tech.map((tech) => (
                       <span
                         key={tech}
