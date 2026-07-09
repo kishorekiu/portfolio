@@ -2,7 +2,7 @@ import React from "react";
 import { ExternalLink, Terminal, ShieldAlert } from "lucide-react";
 import { ReadmeConfig } from "@/lib/readme-data";
 
-const GithubIcon = ({ className }: { className?: string }) => (
+export const GithubIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

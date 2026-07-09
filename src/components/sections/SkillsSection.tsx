@@ -85,7 +85,10 @@ export default function SkillsSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: {
+        duration: 0.5,
+        ease: [0.1, 1, 0.31, 1.01],
+      },
     },
   };
 
@@ -95,10 +98,10 @@ export default function SkillsSection() {
       // py-24 ensures massive breathing room between sections. px-4 ensures mobile safety.
       className="relative w-full min-h-screen py-24 px-4 sm:px-6 flex items-center justify-center overflow-hidden"
     >
-      {/* 1. BACKGROUND LAYER (-z-10) */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
+      {/* 1. BACKGROUND LAYER (z-0) */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Subtle dot matrix grid that adapts to light/dark mode */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff15_1px,transparent_1px)] bg-size-[24px_24px] opacity-50" />
+        <div className="absolute inset-0 bg-[radial-gradient(#c1c8d1_1.5px,transparent_1.5px)] dark:bg-[radial-gradient(#ffffff33_1.5px,transparent_1.5px)] bg-size-[24px_24px] opacity-100" />
 
         {/* Soft gradient mask so the grid fades out at the edges of the section */}
         <div className="absolute inset-0 bg-linear-to-b from-white via-transparent to-white dark:from-[#0E1117] dark:via-transparent dark:to-[#0E1117]" />
