@@ -104,7 +104,7 @@ export default function SkillsSection() {
         <div className="absolute inset-0 bg-[radial-gradient(#c1c8d1_1.5px,transparent_1.5px)] dark:bg-[radial-gradient(#ffffff33_1.5px,transparent_1.5px)] bg-size-[24px_24px] opacity-100" />
 
         {/* Soft gradient mask so the grid fades out at the edges of the section */}
-        <div className="absolute inset-0 bg-linear-to-b from-white via-transparent to-white dark:from-[#0E1117] dark:via-transparent dark:to-[#0E1117]" />
+        <div className="absolute inset-0 bg-linear-to-b from-app via-transparent to-app" />
       </div>
 
       {/* 2. CONTENT LAYER (z-10) */}
@@ -117,10 +117,10 @@ export default function SkillsSection() {
           variants={headerVariants}
           className="flex flex-col items-start md:items-center text-left md:text-center space-y-4"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-main-900">
             Technical Arsenal.
           </h2>
-          <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl">
+          <p className="text-base md:text-lg text-main-600 max-w-2xl">
             A comprehensive breakdown of the tools and frameworks I use to
             engineer scalable, high-performance web applications.
           </p>
@@ -140,16 +140,16 @@ export default function SkillsSection() {
               key={category.title}
               variants={cardVariants}
               // glassmorphism UI: translucent background with a subtle border
-              className="group relative flex flex-col justify-between p-6 md:p-8 rounded-3xl bg-zinc-50/80 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/50 backdrop-blur-sm overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors duration-300"
+              className="group relative flex flex-col justify-between p-6 md:p-8 rounded-3xl bg-main-50/80 border border-main-200 backdrop-blur-sm overflow-hidden hover:border-main-300 transition-colors duration-300"
             >
               {/* Subtle hover glow effect inside the card */}
               <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               <div className="relative z-10 space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+                <h3 className="text-xl md:text-2xl font-bold text-main-900">
                   {category.title}
                 </h3>
-                <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400">
+                <p className="text-sm md:text-base text-main-600">
                   {category.description}
                 </p>
 
@@ -158,7 +158,7 @@ export default function SkillsSection() {
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-xs md:text-sm font-medium rounded-full bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 shadow-sm transition-colors group-hover:border-blue-200 dark:group-hover:border-blue-900/50"
+                      className="px-3 py-1.5 text-xs md:text-sm font-medium rounded-full bg-app border border-main-200 text-main-700 shadow-sm transition-colors group-hover:border-blue-200 dark:group-hover:border-blue-900/50"
                     >
                       {skill}
                     </span>

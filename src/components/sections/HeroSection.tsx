@@ -51,7 +51,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
-          className="absolute w-[600px] h-[500px] md:w-[800px] md:h-[600px] bg-blue-400/20 dark:bg-blue-600/15 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen"
+          className="absolute w-150 h-125 md:w-200 md:h-150 bg-blue-400/20 dark:bg-blue-600/15 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen"
         />
       </div>
 
@@ -63,7 +63,7 @@ export default function HeroSection() {
         className="max-w-4xl text-center space-y-8 relative z-10"
       >
         <motion.div variants={itemVariants} className="flex justify-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-600 dark:text-zinc-400 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-main-100 border border-main-200 text-xs font-medium text-main-600 shadow-sm">
             <Sparkles className="w-3 h-3 text-amber-500" />
             <span>
               <ScrambleText
@@ -76,22 +76,22 @@ export default function HeroSection() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-5xl px-4 md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-zinc-900 dark:text-white leading-[1.1]"
+          className="text-4xl sm:text-5xl px-4 md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-main-900 leading-[1.1]"
         >
           Architecting systems.
           <br className="hidden md:block" />
           {/* Fixed Tailwind bug: bg-linear-to-r -> bg-gradient-to-r */}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">
             Perfecting the UI.
           </span>
         </motion.h1>
 
         <motion.div
           variants={itemVariants}
-          className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-medium"
+          className="text-lg md:text-xl text-main-600 dark:text-main-400 max-w-2xl mx-auto font-medium"
         >
           I am a{" "}
-          <span className="font-bold text-zinc-900 dark:text-zinc-100">
+          <span className="font-bold text-main-900 dark:text-main-100">
             <ScrambleText text="Full-Stack Engineer" delay={1500} />
           </span>{" "}
           specializing in high-performance React architectures, Node.js
@@ -113,7 +113,7 @@ export default function HeroSection() {
           {/* CRITICAL UX CHANGE: href is now "#skills" for the narrative scroll */}
           <Link
             href="#skills"
-            className="group flex items-center gap-2 bg-transparent text-zinc-900 dark:text-white px-6 py-3 rounded-full font-semibold transition-all hover:bg-zinc-100 dark:hover:bg-zinc-900"
+            className="group flex items-center gap-2 bg-transparent text-main-900 dark:text-white px-6 py-3 rounded-full font-semibold transition-all hover:bg-main-100 dark:hover:bg-main-900"
           >
             Explore Skills
             <TerminalSquare className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -128,7 +128,7 @@ export default function HeroSection() {
         transition={{ delay: 2.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce pointer-events-none"
       >
-        <div className="w-0.5 h-12 bg-gradient-to-b from-zinc-400 dark:from-zinc-500 to-transparent rounded-full" />
+        <div className="w-0.5 h-12 bg-linear-to-b from-main-400 to-transparent rounded-full" />
       </motion.div>
     </section>
   );

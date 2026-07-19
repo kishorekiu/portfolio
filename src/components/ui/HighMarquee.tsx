@@ -38,7 +38,7 @@ export default function HighwayMarquee({
           (tech, i) => (
             <span
               key={i}
-              className="text-6xl md:text-8xl font-black text-zinc-900 dark:text-white uppercase tracking-widest"
+              className="text-6xl md:text-8xl font-black text-main-900 uppercase tracking-widest"
             >
               {tech}
             </span>

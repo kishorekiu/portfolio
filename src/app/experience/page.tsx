@@ -79,10 +79,10 @@ export default function ExperiencePage() {
       ref={containerRef}
     >
       <div className="space-y-3 mb-16 text-center md:text-left animate-in fade-in slide-in-from-bottom-4 duration-1000">
-        <h2 className="text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white md:text-5xl">
+        <h2 className="text-4xl font-extrabold tracking-tight text-main-900 md:text-5xl">
           Professional History
         </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 max-w-xl font-medium">
+        <p className="text-main-500 max-w-xl font-medium">
           A track record of shipping highly scalable architectures and
           pixel-perfect user interfaces.
         </p>
@@ -90,7 +90,7 @@ export default function ExperiencePage() {
 
       <div className="relative">
         {/* The Background Line (Dim) */}
-        <div className="absolute left-3.75 md:left-5.75 top-0 bottom-0 w-0.5 bg-zinc-200 dark:bg-zinc-800" />
+        <div className="absolute left-3.75 md:left-5.75 top-0 bottom-0 w-0.5 bg-main-200 " />
 
         {/* The Glowing Animated Line */}
         <motion.div
@@ -102,8 +102,8 @@ export default function ExperiencePage() {
           {EXPERIENCE_DATA.map((job, index) => (
             <div key={job.id} className="relative pl-12 md:pl-20 group">
               {/* Timeline Dot */}
-              <div className="absolute left-0 md:left-2 top-1.5 flex items-center justify-center w-8 h-8 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0E1117] group-hover:border-blue-500 group-hover:shadow-[0_0_10px_rgba(59,130,246,0.3)] transition-all duration-300 z-10">
-                <Briefcase className="w-3.5 h-3.5 text-zinc-400 group-hover:text-blue-500 transition-colors" />
+              <div className="absolute left-0 md:left-2 top-1.5 flex items-center justify-center w-8 h-8 rounded-full border-2 border-main-200 bg-app group-hover:border-blue-500 group-hover:shadow-[0_0_10px_rgba(59,130,246,0.3)] transition-all duration-300 z-10">
+                <Briefcase className="w-3.5 h-3.5 text-main-400 group-hover:text-blue-500 transition-colors" />
               </div>
 
               {/* Content Card */}
@@ -117,11 +117,11 @@ export default function ExperiencePage() {
                 {/* Role and Details */}
                 <div className="flex-1 space-y-4">
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+                    <h3 className="text-xl md:text-2xl font-bold text-main-900 ">
                       {job.role}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                      <span className="font-semibold text-zinc-800 dark:text-zinc-200">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2 text-sm text-main-600 ">
+                      <span className="font-semibold text-main-800 ">
                         {job.company}
                       </span>
                       {job.location && (
@@ -132,7 +132,7 @@ export default function ExperiencePage() {
                     </div>
                   </div>
 
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm md:text-base">
+                  <p className="text-main-600 leading-relaxed text-sm md:text-base">
                     {job.description}
                   </p>
 
@@ -142,7 +142,7 @@ export default function ExperiencePage() {
                       {job.highlights.map((highlight, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-3 text-sm md:text-base text-zinc-600 dark:text-zinc-400 group/bullet"
+                          className="flex items-start gap-3 text-sm md:text-base text-main-600 group/bullet"
                         >
                           {/* Custom glowing bullet point */}
                           <div className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500/50 shrink-0 group-hover/bullet:bg-blue-500 group-hover/bullet:shadow-[0_0_8px_rgba(59,130,246,0.8)] transition-all duration-300" />
@@ -157,7 +157,7 @@ export default function ExperiencePage() {
                     {job.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs font-medium bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-full"
+                        className="px-3 py-1 text-xs font-medium bg-main-100 border border-main-200 text-main-700 rounded-full"
                       >
                         {tech}
                       </span>
@@ -168,7 +168,7 @@ export default function ExperiencePage() {
                 {/* Desktop Date (Sticky on scroll) */}
                 <div className="hidden md:block w-40 shrink-0 relative">
                   <div className="sticky top-24 text-right">
-                    <span className="text-sm font-bold text-zinc-400 dark:text-zinc-500">
+                    <span className="text-sm font-bold text-main-400">
                       {job.date}
                     </span>
                   </div>

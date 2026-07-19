@@ -144,7 +144,7 @@ export default function ExperienceSection() {
       className="relative w-full min-h-screen py-24 px-4 sm:px-6 flex flex-col items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 dark:bg-blue-600/5 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-blue-500/5 dark:bg-blue-600/5 rounded-full blur-[120px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl w-full mx-auto space-y-12">
@@ -153,10 +153,10 @@ export default function ExperienceSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-xs font-semibold text-blue-700 dark:text-blue-400 uppercase tracking-wider">
             Enterprise Architecture
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-main-900">
             Cognizant Technology Solutions.
           </h2>
-          <p className="text-base md:text-lg font-medium text-zinc-600 dark:text-zinc-400">
+          <p className="text-base md:text-lg font-medium text-main-600">
             AI-Empowered Full Stack Engineer · DIRECTV Client (Aug 2022 -
             Present)
           </p>
@@ -176,18 +176,18 @@ export default function ExperienceSection() {
                   onClick={() => handleManualSelect(index)}
                   // 1. CRITICAL FIX: Removed `overflow-hidden` so the motion.div can fly outside the button's boundaries
                   className={`
-                    group relative flex flex-col items-start p-4 md:p-5 rounded-2xl text-left transition-all duration-300
+                    group relative flex flex-col items-start p-4 md:p-5 rounded-2xl text-left transition-all duration-300 bg-color-none
                     ${
                       isActive
                         ? `shadow-md border ${item.borderClass} scale-[1.02]`
-                        : "border border-zinc-200 dark:border-zinc-800/50 hover:border-zinc-300 dark:hover:border-zinc-700"
+                        : "border border-main-200/50 hover:border-main-300"
                     }
                   `}
                 >
                   {/* 2. BASE BACKGROUND: We put the solid background on a -z-20 layer so it doesn't swallow the flying animation */}
                   <div
                     className={`absolute inset-0 rounded-2xl transition-colors duration-300 -z-20
-                      ${isActive ? "bg-white dark:bg-zinc-900" : "bg-zinc-50 dark:bg-[#0E1117] hover:bg-zinc-100 dark:hover:bg-zinc-800/50"}
+                      ${isActive ? "bg-app" : "bg-main-50 hover:bg-main-100/50"}
                     `}
                   />
 
@@ -211,10 +211,10 @@ export default function ExperienceSection() {
                   {/* CONTENT (z-10) */}
                   <div className="relative z-10 flex flex-col gap-3">
                     <Icon
-                      className={`w-6 h-6 transition-colors duration-300 ${isActive ? item.textClass : "text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300"}`}
+                      className={`w-6 h-6 transition-colors duration-300 ${isActive ? item.textClass : "text-main-500 group-hover:text-main-700"}`}
                     />
                     <span
-                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${isActive ? "text-zinc-900 dark:text-white" : "text-zinc-600 dark:text-zinc-400"}`}
+                      className={`text-sm md:text-base font-bold transition-colors duration-300 ${isActive ? "text-main-900" : "text-main-600"}`}
                     >
                       {item.title}
                     </span>
@@ -228,15 +228,15 @@ export default function ExperienceSection() {
           {/* CRITICAL FIXES: sticky, top-24, h-fit, and order-1 (mobile) */}
           <div
             ref={carouselRef}
-            className="order-1 lg:order-2 lg:col-span-5 sticky top-24 md:top-32 h-fit flex flex-col bg-white dark:bg-[#0E1117] border border-zinc-200 dark:border-zinc-800/50 rounded-3xl p-6 md:p-10 shadow-lg"
+            className="order-1 lg:order-2 lg:col-span-5 sticky top-24 md:top-32 h-fit flex flex-col bg-app border border-main-200/50 rounded-3xl p-6 md:p-10 shadow-lg"
           >
             {/* Controls */}
-            <div className="flex items-center justify-between mb-8 border-b border-zinc-100 dark:border-zinc-800/50 pb-4">
+            <div className="flex items-center justify-between mb-8 border-b border-main-100/50 pb-4">
               <div className="flex items-center gap-2">
                 <div
-                  className={`w-3 h-3 rounded-full bg-gradient-to-r ${activeItem.color} animate-pulse`}
+                  className={`w-3 h-3 rounded-full bg-linear-to-r ${activeItem.color} animate-pulse`}
                 />
-                <span className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                <span className="text-xs font-bold text-main-500 uppercase tracking-wider">
                   Highlight {activeIndex + 1} of {COGNIZANT_HIGHLIGHTS.length}
                 </span>
               </div>
@@ -244,13 +244,13 @@ export default function ExperienceSection() {
               <div className="flex items-center gap-1">
                 <button
                   onClick={handlePrev}
-                  className="p-2 text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                  className="p-2 text-main-400 hover:text-main-900 transition-colors"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="p-2 text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                  className="p-2 text-main-400 hover:text-main-900 transition-colors"
                 >
                   {isPlaying ? (
                     <Pause className="w-5 h-5" />
@@ -260,7 +260,7 @@ export default function ExperienceSection() {
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-2 text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                  className="p-2 text-main-400 hover:text-main-900 transition-colors"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -268,7 +268,7 @@ export default function ExperienceSection() {
             </div>
 
             {/* Content Display: Removed absolute inset-0 to allow natural height growth */}
-            <div className="relative min-h-[180px]">
+            <div className="relative min-h-45">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeItem.id}
@@ -283,7 +283,7 @@ export default function ExperienceSection() {
                   >
                     {activeItem.title}
                   </h3>
-                  <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-medium">
+                  <p className="text-base md:text-lg text-main-600 leading-relaxed font-medium">
                     {activeItem.text}
                   </p>
                 </motion.div>

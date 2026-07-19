@@ -25,10 +25,10 @@ export default function DynamicBentoGrid({ items }: DynamicBentoGridProps) {
         <div
           key={item.id}
           className={clsx(
-            "p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md",
+            "p-6 rounded-2xl border border-main-200/80 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md",
             colSpanClasses[item.colSpan || "1"],
             rowSpanClasses[item.rowSpan || "1"],
-            item.customBackground || "bg-zinc-100 dark:bg-zinc-900/60",
+            item.customBackground || "bg-main-100",
           )}
         >
           {/* Top Section: Icon & Content */}
@@ -39,12 +39,10 @@ export default function DynamicBentoGrid({ items }: DynamicBentoGridProps) {
 
           {/* Bottom Section: Text */}
           <div className="mt-auto">
-            <h3 className="font-semibold text-lg text-zinc-900 dark:text-zinc-100">
+            <h3 className="font-semibold text-lg text-main-900">
               {item.title}
             </h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-              {item.description}
-            </p>
+            <p className="text-sm text-main-600 mt-1">{item.description}</p>
           </div>
         </div>
       ))}

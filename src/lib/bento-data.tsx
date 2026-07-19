@@ -77,7 +77,7 @@ export const airbnbMicroservicesData: BentoItem[] = [
       "Custom Express middleware that silently catches failures and returns safe fallback data, ensuring the client UI never crashes.",
     icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
     colSpan: "3",
-    customBackground: "bg-zinc-100 dark:bg-zinc-900/60 border-emerald-500/20",
+    customBackground: "bg-main-100/60 border-emerald-500/20",
   },
   {
     id: "router-segregation",

@@ -23,29 +23,29 @@ export default function SciFiButton({
       {...props}
     >
       {/* 1. The Main Button Body (Handles clipping the sweeping background) */}
-      <div className="absolute inset-0 border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-900/50 overflow-hidden">
+      <div className="absolute inset-0 border border-main-300 bg-main-100/50 overflow-hidden">
         {/* The Cyberpunk Diagonal Hatch Pattern */}
         <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08] bg-[repeating-linear-gradient(-45deg,transparent,transparent_4px,currentColor_4px,currentColor_6px)] pointer-events-none" />
 
         {/* The Sweeping Background (Top-Left to Bottom-Right Sweep) */}
-        <div className="absolute top-0 left-[-20%] w-[150%] h-full bg-zinc-900 dark:bg-white -skew-x-45 translate-x-[-120%] group-hover:translate-x-0 transition-transform duration-800 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+        <div className="absolute top-0 left-[-20%] w-[150%] h-full bg-main-900 -skew-x-45 translate-x-[-120%] group-hover:translate-x-0 transition-transform duration-800 ease-[cubic-bezier(0.16,1,0.3,1)]" />
       </div>
 
       {/* 2. The Corner Carrots (Absolute positioned outside the clipping mask) */}
       {/* Top Left */}
-      <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-zinc-900 dark:border-white transition-all duration-300 ease-out group-hover:scale-125 group-hover:-translate-x-1 group-hover:-translate-y-1 pointer-events-none" />
+      <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-main-900 transition-all duration-300 ease-out group-hover:scale-125 group-hover:-translate-x-1 group-hover:-translate-y-1 pointer-events-none" />
 
       {/* Top Right */}
-      <div className="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-zinc-900 dark:border-white transition-all duration-300 ease-out group-hover:scale-125 group-hover:translate-x-1 group-hover:-translate-y-1 pointer-events-none" />
+      <div className="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-main-900 transition-all duration-300 ease-out group-hover:scale-125 group-hover:translate-x-1 group-hover:-translate-y-1 pointer-events-none" />
 
       {/* Bottom Left */}
-      <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-zinc-900 dark:border-white transition-all duration-300 ease-out group-hover:scale-125 group-hover:-translate-x-1 group-hover:translate-y-1 pointer-events-none" />
+      <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-main-900 transition-all duration-300 ease-out group-hover:scale-125 group-hover:-translate-x-1 group-hover:translate-y-1 pointer-events-none" />
 
       {/* Bottom Right */}
-      <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-zinc-900 dark:border-white transition-all duration-300 ease-out group-hover:scale-125 group-hover:translate-x-1 group-hover:translate-y-1 pointer-events-none" />
+      <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-main-900 transition-all duration-300 ease-out group-hover:scale-125 group-hover:translate-x-1 group-hover:translate-y-1 pointer-events-none" />
 
       {/* 3. The Text Content */}
-      <span className="relative z-10 text-sm text-zinc-900 dark:text-zinc-300 group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-300">
+      <span className="relative z-10 text-sm text-main-900 group-hover:text-app transition-colors duration-300">
         {children}
       </span>
     </button>

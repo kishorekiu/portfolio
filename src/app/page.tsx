@@ -5,7 +5,7 @@ import SkillsSection from "@/components/sections/SkillsSection";
 
 export default function Home() {
   return (
-    <main className="relative w-full min-h-screen overflow-clip bg-white dark:bg-[#0E1117] selection:bg-blue-500/30 transition-colors duration-500">
+    <main className="relative w-full overflow-clip selection:bg-blue-500/30">
       <HeroSection />
       <ProjectsSection />
       <ExperienceSection />

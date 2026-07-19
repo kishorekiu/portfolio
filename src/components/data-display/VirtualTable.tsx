@@ -42,19 +42,19 @@ export default function VirtualTable() {
   return (
     <div className="flex flex-col h-full space-y-4">
       {/* Header Metrics */}
-      <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-4">
+      <div className="flex items-center justify-between border-b border-main-200 pb-4">
         <div>
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+          <h2 className="text-xl font-bold text-main-900 flex items-center gap-2">
             <Activity className="w-5 h-5 text-blue-500" />
             System Request Logs
           </h2>
-          <p className="text-sm text-zinc-500 mt-1">
+          <p className="text-sm text-main-500 mt-1">
             DOM Virtualization rendering {ROW_COUNT.toLocaleString()} rows at
             60fps.
           </p>
         </div>
         <div className="flex space-x-4">
-          <div className="bg-zinc-100 dark:bg-zinc-900 px-3 py-1.5 rounded text-sm font-mono border border-zinc-200 dark:border-zinc-800">
+          <div className="bg-main-100 px-3 py-1.5 rounded text-sm font-mono border border-main-200">
             Memory Load: <span className="text-emerald-500 font-bold">Low</span>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function VirtualTable() {
       {/* The Scrollable Container */}
       <div
         ref={parentRef}
-        className="flex-1 overflow-auto rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-sm custom-scrollbar"
+        className="flex-1 overflow-auto rounded-lg border border-main-200 bg-app shadow-sm custom-scrollbar"
         style={{ maxHeight: "calc(100vh - 12rem)" }}
       >
         {/* The massive virtual height container */}
@@ -91,15 +91,15 @@ export default function VirtualTable() {
                   transform: `translateY(${virtualRow.start}px)`,
                 }}
                 className={clsx(
-                  "flex items-center px-4 border-b border-zinc-100 dark:border-zinc-900 text-sm font-mono transition-colors",
+                  "flex items-center px-4 border-b border-main-100 text-sm font-mono transition-colors",
                   virtualRow.index % 2 === 0
-                    ? "bg-zinc-50/50 dark:bg-zinc-900/20"
+                    ? "bg-main-50/50"
                     : "bg-transparent",
                   "hover:bg-blue-50 dark:hover:bg-blue-900/20",
                 )}
               >
-                <div className="w-24 text-zinc-500">{row.id}</div>
-                <div className="w-48 text-zinc-500 hidden md:block">
+                <div className="w-24 text-main-500">{row.id}</div>
+                <div className="w-48 text-main-500 hidden md:block">
                   {row.timestamp}
                 </div>
                 <div className="w-24 flex items-center">
@@ -113,13 +113,13 @@ export default function VirtualTable() {
                     </span>
                   )}
                 </div>
-                <div className="flex-1 text-zinc-700 dark:text-zinc-300 truncate pr-4">
+                <div className="flex-1 text-main-700 truncate pr-4">
                   {row.endpoint}
                 </div>
                 <div
                   className={clsx(
                     "w-24 text-right flex items-center justify-end",
-                    isError ? "text-rose-500" : "text-zinc-500",
+                    isError ? "text-rose-500" : "text-main-500",
                   )}
                 >
                   <Clock className="w-3 h-3 mr-1 opacity-50" />

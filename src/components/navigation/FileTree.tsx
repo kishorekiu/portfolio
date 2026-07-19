@@ -33,7 +33,7 @@ function TreeNode({ node, level }: { node: FileNode; level: number }) {
       <li>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center w-full py-1 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+          className="flex items-center w-full py-1 text-sm text-main-600 hover:text-main-900 transition-colors"
           style={{ paddingLeft }}
         >
           {isOpen ? (
@@ -58,8 +58,8 @@ function TreeNode({ node, level }: { node: FileNode; level: number }) {
         className={clsx(
           "flex items-center w-full py-1 text-sm transition-colors",
           isActive
-            ? "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-r-2 border-blue-500"
-            : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-100",
+            ? "bg-blue-500/10 text-blue-600 border-r-2 border-blue-500"
+            : "text-main-600 hover:bg-main-100 hover:text-main-900",
         )}
         style={{ paddingLeft: `${level * 12 + 28}px` }}
       >

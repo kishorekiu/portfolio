@@ -33,13 +33,13 @@ export default function DashboardShell({
   return (
     <div className="flex h-screen w-full flex-col md:flex-row overflow-hidden">
       {/* Mobile Top Navigation Bar */}
-      <div className="flex h-14 w-full items-center justify-between border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-[#0E1117] px-4 md:hidden z-20">
-        <span className="text-sm font-semibold tracking-wider text-zinc-500 uppercase">
+      <div className="flex h-14 w-full items-center justify-between border-b border-main-200 bg-main-50 px-4 md:hidden z-20">
+        <span className="text-sm font-semibold tracking-wider text-main-500 uppercase">
           Explorer
         </span>
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-2 -mr-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+          className="p-2 -mr-2 text-main-600 hover:text-main-900 transition-colors"
           aria-label="Toggle Menu"
         >
           {isMobileMenuOpen ? (
@@ -53,13 +53,13 @@ export default function DashboardShell({
       {/* Sidebar (Desktop static, Mobile off-canvas) */}
       <aside
         className={clsx(
-          "absolute md:static top-14 md:top-0 left-0 h-[calc(100vh-3.5rem)] md:h-screen w-64 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-[#0E1117]/95 backdrop-blur-md md:backdrop-blur-none z-30 flex flex-col transition-transform duration-300 ease-in-out",
+          "absolute md:static top-14 md:top-0 left-0 h-[calc(100vh-3.5rem)] md:h-screen w-64 border-r border-main-200 bg-main-50/95 backdrop-blur-md md:backdrop-blur-none z-30 flex flex-col transition-transform duration-300 ease-in-out",
           isMobileMenuOpen
             ? "translate-x-0"
             : "-translate-x-full md:translate-x-0",
         )}
       >
-        <div className="hidden md:flex p-4 border-b border-zinc-200 dark:border-zinc-800 text-sm font-semibold tracking-wider text-zinc-500 uppercase">
+        <div className="hidden md:flex p-4 border-b border-main-200 text-sm font-semibold tracking-wider text-main-500 uppercase">
           Explorer
         </div>
         <div className="flex-1 overflow-y-auto py-2">

@@ -34,7 +34,7 @@ export default function ThemeToggle() {
       }}
       onClick={() => setTheme(isDark ? "light" : "dark")}
       // Updated classes for much higher contrast against the page backgrounds
-      className="flex items-center justify-center w-10 h-10 rounded-full bg-zinc-200/90 dark:bg-zinc-800/90 border border-zinc-300/80 dark:border-zinc-600/80 backdrop-blur-xl shadow-xl text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors hover:bg-zinc-300/90 dark:hover:bg-zinc-700/90 outline-none focus:ring-2 focus:ring-blue-500/50"
+      className="flex items-center justify-center w-10 h-10 rounded-full bg-main-200/90 border border-main-300/80 backdrop-blur-xl shadow-xl text-main-600 hover:text-main-900 transition-colors hover:bg-main-300/90 outline-none focus:ring-2 focus:ring-blue-500/50"
       aria-label="Toggle Dark Mode"
     >
       {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}

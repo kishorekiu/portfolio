@@ -78,15 +78,13 @@ function DefaultProjectOverview({
 }) {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <div className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
-        <h1 className="text-2xl font-bold tracking-tight capitalize text-zinc-900 dark:text-zinc-100">
+      <div className="border-b border-main-200 pb-4">
+        <h1 className="text-2xl font-bold tracking-tight capitalize text-main-900">
           {title.replace("-", " ")}
         </h1>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-          {description}
-        </p>
+        <p className="text-sm text-main-500 mt-1">{description}</p>
       </div>
-      <div className="p-8 border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl flex flex-col items-center justify-center text-center text-zinc-400 min-h-75">
+      <div className="p-8 border border-dashed border-main-300  rounded-xl flex flex-col items-center justify-center text-center text-main-400 min-h-75">
         <FileCode className="w-12 h-12 mb-3 opacity-50" />
         <p className="text-sm">
           Select a specific file from the Explorer sidebar to view code

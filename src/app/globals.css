@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "kishore-design-system";
 @custom-variant dark (&:is(.dark *));
 
 @keyframes marquee {

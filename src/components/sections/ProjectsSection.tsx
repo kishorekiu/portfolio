@@ -83,7 +83,7 @@ function SpotlightCard({
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="group relative flex flex-col md:flex-row w-full bg-white dark:bg-[#0a0a0a] border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-300 hover:border-zinc-300 dark:hover:border-zinc-700 h-auto md:h-[400px]"
+        className="group relative flex flex-col md:flex-row w-full bg-app border border-main-200 rounded-3xl overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-300 hover:border-main-300 h-auto md:h-100"
       >
         {/* The Dynamic Mouse Spotlight */}
         <motion.div
@@ -100,22 +100,22 @@ function SpotlightCard({
         />
 
         {/* Left Column: Text & Meta */}
-        <div className="relative z-10 flex flex-col justify-between p-8 md:p-12 w-full md:w-3/5 h-full border-b md:border-b-0 md:border-r border-zinc-200 dark:border-zinc-800/50">
+        <div className="relative z-10 flex flex-col justify-between p-8 md:p-12 w-full md:w-3/5 h-full border-b md:border-b-0 md:border-r border-main-200/50">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                <project.icon className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
+              <div className="p-2.5 rounded-xl bg-main-100 border border-main-200 shadow-sm">
+                <project.icon className="w-5 h-5 text-main-600" />
               </div>
-              <span className="text-sm font-bold tracking-wider text-zinc-500 dark:text-zinc-500 uppercase">
+              <span className="text-sm font-bold tracking-wider text-main-500 uppercase">
                 {project.tagline}
               </span>
             </div>
 
-            <h3 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-4">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-main-900 mb-4">
               {project.title}
             </h3>
 
-            <p className="text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed font-medium">
+            <p className="text-main-600 text-base md:text-lg leading-relaxed font-medium">
               {project.description}
             </p>
           </div>
@@ -124,7 +124,7 @@ function SpotlightCard({
             {project.tech.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1.5 text-xs font-semibold rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300"
+                className="px-3 py-1.5 text-xs font-semibold rounded-full bg-main-100 border border-main-200 text-main-700"
               >
                 {tech}
               </span>
@@ -134,13 +134,13 @@ function SpotlightCard({
 
         {/* Right Column: Visual / CTA Area */}
         <div
-          className={`relative z-10 w-full md:w-2/5 h-full bg-gradient-to-br ${project.color} flex flex-col items-center justify-center p-8 transition-opacity`}
+          className={`relative z-10 w-full md:w-2/5 h-full bg-linear-to-br ${project.color} flex flex-col items-center justify-center p-8 transition-opacity`}
         >
           {/* Abstract Wireframe Graphic (Adapts to light/dark) */}
-          <div className="absolute inset-0 bg-[radial-gradient(#00000015_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff22_1px,transparent_1px)] bg-[size:16px_16px] opacity-50 dark:opacity-30 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-[radial-gradient(#00000015_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff22_1px,transparent_1px)] bg-size-[16px_16px] opacity-50 dark:opacity-30 mix-blend-overlay" />
 
           <Link href={project.link} className="relative z-20 group/btn">
-            <button className="flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-black font-bold hover:scale-105 transition-transform duration-300 shadow-xl">
+            <button className="flex items-center gap-2 px-6 py-3 rounded-full bg-main-900 text-app font-bold hover:scale-105 transition-transform duration-300 shadow-xl">
               Boot Workspace
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
             </button>
@@ -148,7 +148,7 @@ function SpotlightCard({
 
           <Link
             href={project.link}
-            className="relative z-20 mt-6 flex items-center gap-2 text-sm font-bold text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
+            className="relative z-20 mt-6 flex items-center gap-2 text-sm font-bold text-main-600 hover:text-main-900 transition-colors"
           >
             <GithubIcon className="w-4 h-4" />
             View Source Architecture
@@ -165,18 +165,18 @@ export default function ProjectsSection() {
     <section
       id="projects"
       // Changed bg color to support light mode properly
-      className="relative w-full min-h-screen py-32 px-4 sm:px-6 bg-zinc-50 dark:bg-[#040404] transition-colors duration-500"
+      className="relative w-full min-h-screen py-32 px-4 sm:px-6 bg-main-50 transition-colors duration-500"
     >
       <div className="max-w-5xl w-full mx-auto">
         {/* Section Header */}
         <div className="mb-24 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-200/50 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 text-xs font-bold text-zinc-700 dark:text-zinc-400 uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-main-200/50 border border-main-300 text-xs font-bold text-main-700 uppercase tracking-wider">
             Production Builds
           </div>
-          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-main-900">
             Deployed Systems.
           </h2>
-          <p className="text-lg text-zinc-600 dark:text-zinc-500 max-w-2xl font-medium">
+          <p className="text-lg text-main-600 max-w-2xl font-medium">
             A selection of full-stack architectures and AI integrations built to
             enterprise specifications.
           </p>

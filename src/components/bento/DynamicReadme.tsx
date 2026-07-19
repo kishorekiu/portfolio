@@ -20,10 +20,10 @@ export const GithubIcon = ({ className }: { className?: string }) => (
 
 export default function DynamicReadme({ data }: { data: ReadmeConfig }) {
   return (
-    <div className="max-w-3xl mx-auto space-y-8 text-zinc-800 dark:text-zinc-300 pb-12">
+    <div className="max-w-3xl mx-auto space-y-8 text-main-800 pb-12">
       {/* Header section with optional icon */}
-      <div className="border-b border-zinc-200 dark:border-zinc-800 pb-6">
-        <h1 className="text-4xl font-extrabold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-3">
+      <div className="border-b border-main-200 pb-6">
+        <h1 className="text-4xl font-extrabold text-main-900 mb-4 flex items-center gap-3">
           {data.title} {data.titleIcon}
         </h1>
 
@@ -45,7 +45,7 @@ export default function DynamicReadme({ data }: { data: ReadmeConfig }) {
               href={data.links.frontendRepo}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-md text-sm font-medium transition-colors border border-zinc-200 dark:border-zinc-700"
+              className="flex items-center space-x-2 px-4 py-2 bg-main-100 hover:bg-main-200 text-main-900 rounded-md text-sm font-medium transition-colors border border-main-200"
             >
               <GithubIcon className="w-4 h-4" />
               <span>Frontend Repo</span>
@@ -56,7 +56,7 @@ export default function DynamicReadme({ data }: { data: ReadmeConfig }) {
               href={data.links.backendRepo}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-md text-sm font-medium transition-colors border border-zinc-200 dark:border-zinc-700"
+              className="flex items-center space-x-2 px-4 py-2 bg-main-100 hover:bg-main-200 text-main-900 rounded-md text-sm font-medium transition-colors border border-main-200"
             >
               <GithubIcon className="w-4 h-4" />
               <span>Backend Repo</span>
@@ -67,7 +67,7 @@ export default function DynamicReadme({ data }: { data: ReadmeConfig }) {
               href={data.links.sourceRepo}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-md text-sm font-medium transition-colors border border-zinc-200 dark:border-zinc-700"
+              className="flex items-center space-x-2 px-4 py-2 bg-main-100 hover:bg-main-200 text-main-900 rounded-md text-sm font-medium transition-colors border border-main-200"
             >
               <GithubIcon className="w-4 h-4" />
               <span>Source Code</span>
@@ -81,7 +81,7 @@ export default function DynamicReadme({ data }: { data: ReadmeConfig }) {
         <p className="leading-relaxed">{data.description}</p>
 
         {/* Dynamic Features List */}
-        <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+        <h2 className="text-2xl font-bold text-main-900 pt-4 border-t border-main-200">
           {data.featuresListHeading}
         </h2>
         <ul className="list-disc pl-6 space-y-2">
@@ -93,18 +93,18 @@ export default function DynamicReadme({ data }: { data: ReadmeConfig }) {
         {/* Conditionally rendered Quick Start / Code Block */}
         {data.quickStart && (
           <>
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+            <h2 className="text-2xl font-bold text-main-900 pt-4 border-t border-main-200">
               {data.quickStart.label}
             </h2>
             <div
               className={`border rounded-md p-4 font-mono text-sm ${
                 data.quickStart.type === "env"
-                  ? "bg-zinc-100 dark:bg-[#0d1117] border-zinc-200 dark:border-zinc-800 text-amber-600 dark:text-amber-400"
-                  : "bg-zinc-100 dark:bg-[#0d1117] border-zinc-200 dark:border-zinc-800 text-blue-600 dark:text-blue-400"
+                  ? "bg-main-100 border-main-200 text-amber-600 dark:text-amber-400"
+                  : "bg-main-100 border-main-200 text-blue-600 dark:text-blue-400"
               }`}
             >
               {data.quickStart.type === "bash" && (
-                <div className="flex items-center space-x-2 text-zinc-500 mb-2 select-none">
+                <div className="flex items-center space-x-2 text-main-500 mb-2 select-none">
                   <Terminal className="w-4 h-4" />
                   <span>bash</span>
                 </div>

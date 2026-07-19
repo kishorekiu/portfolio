@@ -26,7 +26,7 @@ export default function FloatingNav() {
 
   return (
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-      <div className="flex items-center gap-1 p-2 rounded-full border border-zinc-200/50 dark:border-zinc-800/50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl shadow-lg">
+      <div className="flex items-center gap-1 p-2 rounded-full border border-main-200/50 bg-app/70 backdrop-blur-xl shadow-lg">
         {navItems.map((item) => {
           // Highlight 'Workspace' if we are anywhere inside /projects or /metrics
           const isActive =
@@ -43,13 +43,13 @@ export default function FloatingNav() {
                 "relative group flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300",
                 isActive
                   ? "bg-blue-500/10 text-blue-600 dark:text-blue-400"
-                  : "text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-100",
+                  : "text-main-500 hover:bg-main-100 hover:text-main-900",
               )}
             >
               {item.icon}
 
               {/* Tooltip on Hover */}
-              <span className="absolute -top-10 scale-0 group-hover:scale-100 transition-transform origin-bottom px-2 py-1 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs rounded-md shadow-sm whitespace-nowrap">
+              <span className="absolute -top-10 scale-0 group-hover:scale-100 transition-transform origin-bottom px-2 py-1 bg-main-900 text-app text-xs rounded-md shadow-sm whitespace-nowrap">
                 {item.name}
               </span>
             </Link>
